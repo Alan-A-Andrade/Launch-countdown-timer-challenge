@@ -1,73 +1,50 @@
 import BackgroundStyled from "./background"
-import Card from "./Card"
-import { useState, useEffect } from "react";
 import styled from "styled-components"
+import TimerSeconds from "./TimerSeconds";
+import TimerMinutes from "./TimerMinutes";
+import TimerHours from "./TimerHours";
+import TimerDays from "./TimerDays";
 
-let countSeconds = 59, nextCountSeconds = countSeconds - 1, flipperSeconds = 0;
+import fbLogo from "./assets/images/icon-facebook.svg";
+import igLogo from "./assets/images/icon-instagram.svg";
+import ptLogo from "./assets/images/icon-pinterest.svg";
 
 export default function App() {
 
 
-
-
-  //------------------------seconds---------------------------------//
-
-  function handleCountSeconds() {
-
-    if (flipperSeconds % 2 === 0) {
-
-      nextCountSeconds = countSeconds - 1;
-    }
-
-    else {
-
-      if (countSeconds - 2 === -1) {
-
-        countSeconds = 59
-      }
-
-      else {
-        countSeconds -= 2;
-      }
-
-    }
-
-  }
-
-  const [flipDownSeconds, setFlipDownSeconds] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-
-
-      setFlipDownSeconds(flipDownSeconds + 1)
-      flipperSeconds++;
-      setTimeout(handleCountSeconds, 200)
-
-    }, 1000);
-    return () => clearInterval(interval);
-  });
-
-
-  //------------------------seconds---------------------------------//
 
   return (
     <div className="App">
       <AppStyled>
         <BackgroundStyled />
         <div className="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+          Challenge by <a href="https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-">Frontend Mentor</a>.
           Coded by <a href="https://github.com/Alan-A-Andrade">Alan de Andrade</a>.
         </div>
+        <h1 className="Title">WE'RE LAUNCHING SOON</h1>
         <div className="timer">
-          <div className="display-number-seconds">
-            <Card number={nextCountSeconds} lastNumber={countSeconds} cardState={`rotateX(0deg)`}></Card>
-            <Card number={countSeconds} lastNumber={nextCountSeconds} cardState={`rotateX(-180deg)`}></Card>
-            <Card number={nextCountSeconds} lastNumber={countSeconds} cardState={`rotateX(${(flipDownSeconds + 1) * -180}deg)`}></Card>
-            <Card number={countSeconds} lastNumber={nextCountSeconds} cardState={`rotateX(${flipDownSeconds * -180}deg)`}></Card>
-          </div>
+          <span className="timer-seconds">
+            <TimerSeconds />
+            <h1>Seconds</h1>
+          </span>
+          <span className="timer-minutes">
+            <TimerMinutes />
+            <h1>Minutes</h1>
+          </span>
+          <span className="timer-hours">
+            <TimerHours />
+            <h1>Hours</h1>
+          </span>
+          <span className="timer-days">
+            <TimerDays />
+            <h1>Days</h1>
+          </span>
         </div>
-        <button onClick={() => { alert("oi") }}> Click me</button>
+        <div className="icon-List">
+          <img src={fbLogo} alt="" />
+          <img src={igLogo} alt="" />
+          <img src={ptLogo} alt="" />
+        </div>
       </AppStyled>
     </div>
   )
@@ -84,31 +61,103 @@ font-family: 'Red Hat Text', sans-serif;
 font-size: 14px;
 
 display:flex;
+flex-direction: column;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 
-button{
-  position:fixed;
-  width: 100px;
-  z-index:10;
-  top:0px;
+.Title{
+  color: hsl(0, 0%, 100%);
+  font-size: 28px;
+  z-index: 20 ;
+  letter-spacing: 6px;
+  padding-top: calc(18vh);
 }
 
 .timer{
-  display:block;
-}
-
-.display-number-seconds{
   display:flex;
-  position:relative;
-  left:-250px;
+  padding-top: calc(10vh);
+  
 }
 
-.display-number-minutes{
-  position:relative;
-  left:0px;
+.icon-List{
+  z-index: 20 ;
+  padding-top: calc(55vh);
+  display:flex;
+  flex-wrap:wrap;
+  gap: 25px;
+
+  & img{
+
+    width: 32px;
+    height: 32px;
+
+    filter: brightness(0) saturate(100%);
+    filter: invert(57%) sepia(18%) saturate(495%) hue-rotate(199deg) brightness(91%) contrast(92%);
+  
+  }
+  & img:hover{
+
+    filter: invert(50%) sepia(81%) saturate(1469%) hue-rotate(310deg) brightness(101%) contrast(97%);
+  }
+}
+
+.timer-seconds{
+  position: absolute;
+  left: calc(50vw + 200px);
+
+  & h1{
+    position: relative;
+    bottom: -180px;
+    left: 22px;
+
+    font-size: 28px;
+    color: hsl(237, 18%, 59%);
+  }
 
 }
+
+.timer-minutes{
+position: absolute;
+left: calc(50vw + 000px);
+
+& h1{
+    position: relative;
+    bottom: -180px;
+    left: 26px;
+
+    font-size: 28px;
+    color: hsl(237, 18%, 59%);
+  }
+}
+
+.timer-hours{
+position: absolute;
+left: calc(50vw - 200px);
+
+& h1{
+    position: relative;
+    bottom: -180px;
+    left: 38px;
+
+    font-size: 28px;
+    color: hsl(237, 18%, 59%);
+  }
+}
+
+.timer-days{
+position: absolute;
+left: calc(50vw - 400px);
+
+& h1{
+    position: relative;
+    bottom: -180px;
+    left: 38px;
+
+    font-size: 28px;
+    color: hsl(237, 18%, 59%);
+  }
+}
+
 
 
 .attribution{

@@ -2,15 +2,48 @@ import styled from "styled-components"
 
 export default function Card(Props) {
 
+
+  if (Props.cardCount !== Props.number && Props.cardCount !== Props.lastNumber && Props.cardCount !== Props.lastNumber - 1 && Props.cardCount !== Props.number - 1) {
+
+    return ""
+  }
+
+
+  //Card Logic:
+  // 0 Display None
+  // 1 top haf
+  // 2 botton half
+  // 3 disply none
+
+  const stages = [
+
+    { display: `flex`, position: `rotateX(0deg)`, transition: "none", z: "10" },
+    { display: `flex`, position: `rotateX(-180deg)`, transition: "transform 500ms", z: "20" },
+    { display: `flex`, position: `rotateX(-180deg)`, transition: "none", z: "10" },
+
+  ]
+
+  function convert(number) {
+    number = String(number)
+    if (number.length === 1)
+      number = '0' + number
+    return number
+  }
+
   return (
-    <CardStyled position={Props.cardState}>
+    <CardStyled
+      display={stages[Props.cardState].display}
+      position={stages[Props.cardState].position}
+      transition={stages[Props.cardState].transition}
+      z={stages[Props.cardState].z}
+    >
       <div className="flip-card">
         <div className="flip-card-inner">
           <div className="flip-card-front">
-            <p>{Props.number}</p>
+            <p>{convert(Props.number)}</p>
           </div>
           <div className="flip-card-back">
-            <p>{Props.lastNumber}</p>
+            <p>{convert(Props.lastNumber)}</p>
           </div>
         </div>
         <CircleCutLeft />
@@ -26,13 +59,10 @@ const CardStyled = styled.div`
 
 width: 160px;
 height: 160px;
-display:flex;
+display:${props => props.display};
 flex-direction:column;
 border-radius: 10px;
-z-index: 10;
-
-
-position: absolute;
+z-index: ${props => props.z};
 
 font-size:80px;
 overflow: hidden;
@@ -44,7 +74,7 @@ box-shadow: 0px 10px 0px 0px hsl(234, 17%, 12%);
   width: 160px;
   height: 80px;
   perspective: 1000px;
-  position: relative;
+
 }
 
 .flip-card-inner {
@@ -52,10 +82,9 @@ box-shadow: 0px 10px 0px 0px hsl(234, 17%, 12%);
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 500ms;
+  transition: ${props => props.transition};
   transform-style: preserve-3d;
   transform-origin: bottom center;
-
   transform: ${props => props.position};
 }
 
