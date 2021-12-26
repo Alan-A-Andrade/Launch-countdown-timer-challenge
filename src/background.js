@@ -39,11 +39,21 @@ overflow: hidden;
 
   position:fixed;
   bottom:0;
+
+  & img{
+ 
+    width:100vw;
+  }
 }
 
 .bg-Stars{
   position:fixed;
   height:100%;
+
+  & img{
+ 
+  width:100vw;
+  }
 }
 
 .degrade{
