@@ -140,3 +140,9 @@ table {
 strong {
   font-weight: bold;
 }
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

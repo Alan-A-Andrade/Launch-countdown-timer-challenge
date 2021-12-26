@@ -57,6 +57,7 @@ const AppStyled = styled.div`
 width:100vw;
 height:100vh;
 
+
 font-family: 'Red Hat Text', sans-serif;
 font-size: 14px;
 
@@ -103,7 +104,7 @@ justify-content: flex-start;
 
 .timer-seconds{
   position: absolute;
-  left: calc(50vw + 200px);
+  left: calc(50vw + 210px);
 
   & h1{
     position: relative;
@@ -118,7 +119,7 @@ justify-content: flex-start;
 
 .timer-minutes{
 position: absolute;
-left: calc(50vw + 000px);
+left: calc(50vw + 010px);
 
 & h1{
     position: relative;
@@ -132,7 +133,7 @@ left: calc(50vw + 000px);
 
 .timer-hours{
 position: absolute;
-left: calc(50vw - 200px);
+left: calc(50vw - 190px);
 
 & h1{
     position: relative;
@@ -146,7 +147,7 @@ left: calc(50vw - 200px);
 
 .timer-days{
 position: absolute;
-left: calc(50vw - 400px);
+left: calc(50vw - 390px);
 
 & h1{
     position: relative;
@@ -167,6 +168,112 @@ left: calc(50vw - 400px);
   text-decoration: none;
 
   bottom:0;
+}
+
+@media only screen and (max-width: 600px) {
+  
+
+  .Title{
+  //color: hsl(0, 0%, 100%);
+  font-size: 24px;
+  z-index: 20 ;
+  letter-spacing: 6px;
+  padding-top: calc(18vh);
+  text-align: center;
+}
+
+.attribution{
+
+all:unset;
+
+position: fixed;
+color: hsl(0, 0%, 100%);
+text-decoration: none;
+padding: 10px;
+
+top: 0px;
+}
+
+.timer-seconds{
+  position: absolute;
+  left: calc(50vw + 95px);
+
+  & h1{
+    position: relative;
+    bottom: -90px;
+    left: 10px;
+
+    font-size: 14px;
+    color: hsl(237, 18%, 59%);
+  }
+
+}
+
+.timer-minutes{
+position: absolute;
+left: calc(50vw + 5px);
+
+& h1{
+    position: relative;
+    bottom: -90px;
+    left: 12px;
+
+    font-size: 14px;
+    color: hsl(237, 18%, 59%);
+  }
+}
+
+.timer-hours{
+position: absolute;
+left: calc(50vw - 85px);
+
+& h1{
+    position: relative;
+    bottom: -90px;
+    left: 19px;
+
+    font-size: 14px;
+    color: hsl(237, 18%, 59%);
+  }
+}
+
+.timer-days{
+position: absolute;
+left: calc(50vw - 175px);
+
+& h1{
+    position: relative;
+    bottom: -90px;
+    left: 25px;
+
+    font-size: 14px;
+    color: hsl(237, 18%, 59%);
+  }
+}
+
+.icon-List{
+  z-index: 20 ;
+  padding-top: calc(50vh);
+  display:flex;
+  flex-wrap:wrap;
+  gap: 25px;
+
+  & img{
+
+    width: 32px;
+    height: 32px;
+
+    filter: brightness(0) saturate(100%);
+    filter: invert(57%) sepia(18%) saturate(495%) hue-rotate(199deg) brightness(91%) contrast(92%);
+  
+  }
+  & img:hover{
+
+    filter: invert(50%) sepia(81%) saturate(1469%) hue-rotate(310deg) brightness(101%) contrast(97%);
+  }
+}
+
+
 }
 
 `

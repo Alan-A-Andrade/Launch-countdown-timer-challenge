@@ -13,8 +13,12 @@ export default function BackgroundStyled() {
         <div></div>
         <div></div>
       </div>
-      <img className="bg-Stars" src={backgroundStars} alt="" />
-      <img className="bg-Hills" src={backgroundHills} alt="" />
+      <div className="bg-Stars">
+        <img src={backgroundStars} alt="" />
+      </div>
+      <div className="bg-Hills">
+        <img src={backgroundHills} alt="" />
+      </div>
     </Background>
   )
 
@@ -71,5 +75,58 @@ overflow: hidden;
 
   }
 }
+
+@media only screen and (max-width: 600px) {
+
+ 
+
+  .Title{
+  //color: hsl(0, 0%, 100%);
+  font-size: 24px;
+  z-index: 20 ;
+  letter-spacing: 6px;
+  padding-top: calc(18vh);
+  text-align: center;
+  }
+
+  .bg-Hills{
+    all:unset;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+ 
+    position:fixed;
+
+    & img{
+ 
+      position:relative;
+      bottom: -70vh;
+      right: 0px;
+      width: 1200px;
+    }
+  }
+
+  .degrade{
+
+    background-color: #30243a;
+
+    & div{
+      height: calc(100vh / 6);
+      width:100%;
+      
+
+    }
+
+  }
+  .bg-Stars{
+    display:none;
+  position:fixed;
+  height:80%;
+
+
+  }
+
+}
+
 
 `

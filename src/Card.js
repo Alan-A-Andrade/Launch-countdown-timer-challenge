@@ -140,6 +140,93 @@ box-shadow: 0px 10px 0px 0px hsl(234, 17%, 12%);
  
 }
 
+
+@media only screen and (max-width: 600px) {
+
+width: 80px;
+height: 80px;
+display:${props => props.display};
+flex-direction:column;
+border-radius: 2px;
+z-index: ${props => props.z};
+
+font-size:40px;
+overflow: hidden;
+
+box-shadow: 0px 5px 0px 0px hsl(234, 17%, 12%);
+
+.flip-card {
+  background-color: transparent;
+  width: 80px;
+  height: 40px;
+  perspective: 1000px;
+
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: ${props => props.transition};
+  transform-style: preserve-3d;
+  transform-origin: bottom center;
+  transform: ${props => props.position};
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #2c2c44;
+  color: rgba(211,79,110,255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0px 1px 0px 0px hsl(234, 17%, 12%);
+
+  overflow: hidden;
+
+  & p{
+
+    width:80px;
+    position: relative;
+    left: 0;
+    bottom: -50%;
+    text-align: center;
+
+  }
+  
+  }
+  .flip-card-back {
+  background-color: #34364f;
+  color: rgba(249,94,133,255);
+  transform: rotateX(180deg);
+
+  overflow: hidden;
+  box-shadow: 0px 20px 0px 0px hsl(234, 17%, 12%);
+
+  & p{
+    width:80px;
+    position: relative;
+    left: 0;
+    bottom: 50%;
+    text-align: center;
+
+
+  }
+ 
+}
+
+}
+
 `
 
 const CircleCutLeft = styled.div`
@@ -152,6 +239,22 @@ border-top-left-radius: 20px;
 position: absolute;
 top: calc(100% - 10px);
 right: 0px;
+
+@media only screen and (max-width: 600px) {
+
+  width: 5px;
+height: 10px;
+background-color: hsl(234, 17%, 12%);
+border-bottom-left-radius: 10px;
+border-top-left-radius: 10px;
+
+position: absolute;
+top: calc(100% - 5px);
+right: 0px;
+
+
+
+}
 
 `
 
@@ -166,6 +269,23 @@ position: absolute;
 
 top: calc(100% - 10px);
 left: 0px;
+
+@media only screen and (max-width: 600px) {
+
+width: 5px;
+height: 10px;
+background-color: hsl(234, 17%, 12%);
+border-bottom-right-radius: 10px;
+border-top-right-radius: 10px;
+
+position: absolute;
+
+top: calc(100% - 5px);
+left: 0px;
+
+
+
+}
 
 
 `
