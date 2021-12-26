@@ -196,7 +196,7 @@ top: 0px;
 
 .timer-seconds{
   position: absolute;
-  left: calc(50vw + 95px);
+  left: calc(50vw + 90px);
 
   & h1{
     position: relative;
@@ -225,7 +225,7 @@ left: calc(50vw + 5px);
 
 .timer-hours{
 position: absolute;
-left: calc(50vw - 85px);
+left: calc(50vw - 80px);
 
 & h1{
     position: relative;
@@ -239,7 +239,7 @@ left: calc(50vw - 85px);
 
 .timer-days{
 position: absolute;
-left: calc(50vw - 175px);
+left: calc(50vw - 165px);
 
 & h1{
     position: relative;

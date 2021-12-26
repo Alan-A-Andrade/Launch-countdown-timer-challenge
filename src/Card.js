@@ -143,11 +143,11 @@ box-shadow: 0px 10px 0px 0px hsl(234, 17%, 12%);
 
 @media only screen and (max-width: 600px) {
 
-width: 80px;
-height: 80px;
+width: 70px;
+height: 70px;
 display:${props => props.display};
 flex-direction:column;
-border-radius: 2px;
+border-radius: 7px;
 z-index: ${props => props.z};
 
 font-size:40px;
@@ -157,8 +157,8 @@ box-shadow: 0px 5px 0px 0px hsl(234, 17%, 12%);
 
 .flip-card {
   background-color: transparent;
-  width: 80px;
-  height: 40px;
+  width: 70px;
+  height: 35px;
   perspective: 1000px;
 
 }
@@ -196,7 +196,7 @@ box-shadow: 0px 5px 0px 0px hsl(234, 17%, 12%);
 
   & p{
 
-    width:80px;
+    width:70px;
     position: relative;
     left: 0;
     bottom: -50%;
@@ -214,10 +214,10 @@ box-shadow: 0px 5px 0px 0px hsl(234, 17%, 12%);
   box-shadow: 0px 20px 0px 0px hsl(234, 17%, 12%);
 
   & p{
-    width:80px;
+    width:70px;
     position: relative;
     left: 0;
-    bottom: 50%;
+    bottom: calc(50% + 2px);
     text-align: center;
 
 
@@ -242,7 +242,7 @@ right: 0px;
 
 @media only screen and (max-width: 600px) {
 
-  width: 5px;
+width: 5px;
 height: 10px;
 background-color: hsl(234, 17%, 12%);
 border-bottom-left-radius: 10px;
